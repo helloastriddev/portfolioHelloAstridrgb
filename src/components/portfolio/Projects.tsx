@@ -2,36 +2,20 @@ import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Bloom Tasks",
+    title: "Sereins",
     description:
-      "Un gestionnaire de tâches pop avec priorisation intelligente boostée par un LLM. Drag-and-drop, mode focus quotidien et rappels en douceur.",
-    tech: ["React", "TypeScript", "Tailwind", "OpenAI"],
-    bg: "bg-primary text-primary-foreground",
-    badge: "WOW!",
-  },
-  {
-    title: "InvoiceFlow API",
-    description:
-      "Une API .NET 8 robuste pour la facturation PME : auth par rôles, génération PDF, stockage SQL Server. Couverture de tests > 95%.",
-    tech: ["C#", ".NET 8", "SQL Server", "EF Core"],
+      "Application web de bien-être et sérénité. Un espace numérique pour se détendre, avec des exercices de respiration, méditation guidée et suivi d'humeur.",
+    tech: ["React", "TypeScript", "Tailwind", "Node.js"],
     bg: "bg-secondary text-secondary-foreground",
-    badge: "BOOM!",
+    badge: "ZEN!",
   },
   {
-    title: "MoodLens",
+    title: "Popote",
     description:
-      "Tableau de bord d'analyse de sentiments pour les avis produits. Combine un modèle ML Python avec un dashboard React et SignalR temps réel.",
-    tech: ["Python", "React", "ASP.NET", "SignalR"],
-    bg: "bg-accent text-accent-foreground",
-    badge: "ZAP!",
-  },
-  {
-    title: "Petal UI Kit",
-    description:
-      "Une librairie de composants pop open-source construite avec Radix et Tailwind. 40+ composants accessibles avec animations soignées.",
-    tech: ["React", "TypeScript", "Radix", "Storybook"],
-    bg: "bg-pink text-foreground",
-    badge: "POW!",
+      "Plateforme de partage de recettes et de cuisine communautaire. Découvre, crée et partage tes plats favoris avec une communauté de foodies.",
+    tech: ["C#", ".NET", "SQL Server", "React", "Azure"],
+    bg: "bg-primary text-primary-foreground",
+    badge: "YUM!",
   },
 ];
 
@@ -58,7 +42,7 @@ export function Projects() {
           </a>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-8 sm:grid-cols-2">
           {projects.map((p) => (
             <article
               key={p.title}
