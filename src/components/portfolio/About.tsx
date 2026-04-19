@@ -38,7 +38,7 @@ export function About() {
         <div className="grid gap-12 md:grid-cols-5">
           <div className="md:col-span-3 space-y-5 text-base leading-relaxed text-foreground md:text-lg">
             <p className="rounded-2xl bg-card p-5 pop-border shadow-card">
-              Je suis développeuse full-stack et je conçois des produits avec{" "}
+              Je suis Astrid, développeuse full-stack basée à <span className="font-bold text-secondary">Bordeaux</span>, et je conçois des produits avec{" "}
               <span className="font-bold text-primary">C# / .NET</span> côté backend et{" "}
               <span className="font-bold text-secondary">React + TypeScript</span> côté
               frontend. Je suis à l'aise pour modéliser des données relationnelles en{" "}
