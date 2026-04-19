@@ -1,9 +1,24 @@
 import { Heart, Code2, Brain } from "lucide-react";
 
 const values = [
-  { icon: Code2, title: "Clean code", text: "Readable, tested, and maintainable by default." },
-  { icon: Brain, title: "Problem solver", text: "I love untangling tricky logic and edge cases." },
-  { icon: Heart, title: "Detail-oriented", text: "Pixel-perfect UI meets robust backend logic." },
+  {
+    icon: Code2,
+    title: "Code propre",
+    text: "Lisible, testé et facile à maintenir, par défaut.",
+    bg: "bg-accent",
+  },
+  {
+    icon: Brain,
+    title: "Résolveuse de problèmes",
+    text: "J'adore démêler la logique tordue et les cas limites.",
+    bg: "bg-pink",
+  },
+  {
+    icon: Heart,
+    title: "Souci du détail",
+    text: "Une UI au pixel près qui rencontre un backend solide.",
+    bg: "bg-secondary",
+  },
 ];
 
 export function About() {
@@ -11,27 +26,34 @@ export function About() {
     <section id="about" className="relative px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 max-w-2xl">
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-primary">About me</p>
-          <h2 className="font-display text-4xl font-semibold tracking-tight md:text-5xl">
-            A full-stack developer with a <span className="text-gradient">soft spot for AI</span>.
+          <p className="mb-3 inline-block rounded-full bg-secondary px-4 py-1 text-xs font-bold uppercase tracking-widest text-secondary-foreground pop-border shadow-soft">
+            À propos
+          </p>
+          <h2 className="font-display text-5xl uppercase tracking-wide md:text-6xl">
+            Une développeuse full-stack avec un{" "}
+            <span className="text-primary text-stroke-thin">faible pour l'IA</span>.
           </h2>
         </div>
 
         <div className="grid gap-12 md:grid-cols-5">
-          <div className="md:col-span-3 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            <p>
-              I'm a full-stack developer building products with{" "}
-              <span className="font-medium text-foreground">C# / .NET</span> on the backend and{" "}
-              <span className="font-medium text-foreground">React + TypeScript</span> on the frontend. I'm comfortable
-              designing relational data models in <span className="font-medium text-foreground">SQL</span> and shaping
-              APIs that scale.
+          <div className="md:col-span-3 space-y-5 text-base leading-relaxed text-foreground md:text-lg">
+            <p className="rounded-2xl bg-card p-5 pop-border shadow-card">
+              Je suis développeuse full-stack et je conçois des produits avec{" "}
+              <span className="font-bold text-primary">C# / .NET</span> côté backend et{" "}
+              <span className="font-bold text-secondary">React + TypeScript</span> côté
+              frontend. Je suis à l'aise pour modéliser des données relationnelles en{" "}
+              <span className="font-bold text-foreground">SQL</span> et concevoir des APIs qui
+              tiennent la charge.
             </p>
-            <p>
-              Lately I've been exploring <span className="font-medium text-foreground">AI and machine learning</span>{" "}
-              basics — integrating LLMs into real products and learning how data shapes intelligent behavior.
+            <p className="rounded-2xl bg-card p-5 pop-border shadow-card">
+              Ces derniers temps, j'explore les bases de{" "}
+              <span className="font-bold text-primary">l'IA et du machine learning</span> —
+              en intégrant des LLM dans de vrais produits et en apprenant comment la donnée façonne
+              les comportements intelligents.
             </p>
-            <p>
-              I care about the small things: thoughtful UI, sensible defaults, and code that's a joy to revisit.
+            <p className="rounded-2xl bg-card p-5 pop-border shadow-card">
+              Je soigne les petits détails : une UI réfléchie, des défauts sensés, et du code
+              auquel c'est un plaisir de revenir. ✨
             </p>
           </div>
 
@@ -39,13 +61,15 @@ export function About() {
             {values.map((v) => (
               <div
                 key={v.title}
-                className="group flex gap-4 rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-lift"
+                className="group flex gap-4 rounded-2xl bg-card p-5 pop-border shadow-card transition-transform hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-lift"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-soft transition-transform group-hover:scale-110">
+                <div
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${v.bg} pop-border-2 transition-transform group-hover:rotate-[-8deg]`}
+                >
                   <v.icon className="h-5 w-5 text-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-display font-semibold">{v.title}</h3>
+                  <h3 className="font-display text-lg uppercase tracking-wide">{v.title}</h3>
                   <p className="text-sm text-muted-foreground">{v.text}</p>
                 </div>
               </div>
