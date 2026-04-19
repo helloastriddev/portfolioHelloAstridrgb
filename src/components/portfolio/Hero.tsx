@@ -20,7 +20,7 @@ export function Hero() {
 
           <h1 className="font-display text-6xl font-normal uppercase leading-[0.95] tracking-wide md:text-7xl lg:text-8xl">
             <span className="block text-stroke text-accent">Salut,</span>
-            <span className="block">je suis <span className="text-primary text-stroke">Sofia</span></span>
+            <span className="block">je suis <span className="text-primary text-stroke">Astrid</span></span>
             <span className="mt-2 block text-3xl md:text-4xl lg:text-5xl text-secondary text-stroke-thin">
               Développeuse pleine de POP !
             </span>
@@ -111,7 +111,7 @@ export function Hero() {
 
               {/* Bottom label */}
               <div className="bg-primary px-5 py-3 font-display text-2xl uppercase tracking-wide text-primary-foreground border-t-4 border-foreground">
-                ✦ Sofia.dev ✦
+                ✦ Astrid.dev ✦
               </div>
             </div>
 

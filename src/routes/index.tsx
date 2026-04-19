@@ -13,16 +13,16 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Sofia — Développeuse C# .NET & React TypeScript" },
+      { title: "Astrid — Développeuse C# .NET & React TypeScript" },
       {
         name: "description",
         content:
-          "Portfolio de Sofia, développeuse full-stack qui crée des produits POP avec C#/.NET, React + TypeScript, SQL, et une vraie curiosité pour l'IA.",
+          "Portfolio d'Astrid, développeuse full-stack basée à Bordeaux qui crée des produits POP avec C#/.NET, React + TypeScript, SQL, et une vraie curiosité pour l'IA.",
       },
-      { property: "og:title", content: "Sofia — Portfolio Développeuse Full-stack" },
+      { property: "og:title", content: "Astrid — Portfolio Développeuse Full-stack" },
       {
         property: "og:description",
-        content: "Développeuse full-stack .NET & React TypeScript qui crée des produits audacieux et soignés.",
+        content: "Développeuse full-stack basée à Bordeaux .NET & React TypeScript qui crée des produits audacieux et soignés.",
       },
     ],
   }),

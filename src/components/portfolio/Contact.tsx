@@ -20,9 +20,9 @@ export function Contact() {
   };
 
   const links = [
-    { icon: Mail, label: "Email", value: "hello@sofia.dev", href: "mailto:hello@sofia.dev", bg: "bg-primary text-primary-foreground" },
-    { icon: Github, label: "GitHub", value: "@sofia-dev", href: "https://github.com", bg: "bg-foreground text-background" },
-    { icon: Linkedin, label: "LinkedIn", value: "in/sofia-dev", href: "https://linkedin.com", bg: "bg-secondary text-secondary-foreground" },
+    { icon: Mail, label: "Email", value: "hello@astrid.dev", href: "mailto:hello@astrid.dev", bg: "bg-primary text-primary-foreground" },
+    { icon: Github, label: "GitHub", value: "@astrid-dev", href: "https://github.com", bg: "bg-foreground text-background" },
+    { icon: Linkedin, label: "LinkedIn", value: "in/astrid-dev", href: "https://linkedin.com", bg: "bg-secondary text-secondary-foreground" },
   ];
 
   return (
