@@ -50,22 +50,13 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Portrait pop art */}
-        <div className="relative mx-auto w-full max-w-sm">
-          {/* Yellow offset block behind the portrait */}
-          <div
-            aria-hidden
-            className="absolute inset-0 translate-x-3 translate-y-3 rounded-3xl bg-accent pop-border-4"
+        {/* Portrait pop art halftone — fade into background */}
+        <div className="relative mx-auto w-full max-w-md">
+          <img
+            src={portrait}
+            alt="Portrait halftone pop art d'Astrid, développeuse full-stack à Bordeaux"
+            className="h-auto w-full object-contain mix-blend-multiply"
           />
-          <div className="relative overflow-hidden rounded-3xl bg-card pop-border-4 shadow-lift">
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
-              <img
-                src={portrait}
-                alt="Portrait pop art d'Astrid, développeuse full-stack à Bordeaux"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>
