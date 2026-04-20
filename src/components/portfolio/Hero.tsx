@@ -1,6 +1,6 @@
 import { ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import portrait from "@/assets/portrait.jpeg";
+import portrait from "@/assets/portrait-pop.jpeg";
 
 export function Hero() {
   return (
@@ -8,9 +8,15 @@ export function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden bg-background pt-24"
     >
+      {/* Halftone strip background accent */}
+      <div
+        aria-hidden
+        className="absolute inset-y-0 right-0 -z-10 hidden w-1/2 dots-pink-bg opacity-40 md:block"
+      />
+
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2">
         <div className="animate-fade-up space-y-6">
-          <h1 className="font-display text-6xl font-normal uppercase leading-[0.95] tracking-wide md:text-7xl lg:text-8xl">
+          <h1 className="font-display text-6xl font-normal uppercase leading-[0.9] tracking-wide md:text-7xl lg:text-8xl">
             <span className="block">Salut,</span>
             <span className="block">je suis <span className="text-primary text-stroke-thin">Astrid</span></span>
           </h1>
@@ -44,13 +50,18 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Portrait */}
+        {/* Portrait pop art */}
         <div className="relative mx-auto w-full max-w-sm">
+          {/* Yellow offset block behind the portrait */}
+          <div
+            aria-hidden
+            className="absolute inset-0 translate-x-3 translate-y-3 rounded-3xl bg-accent pop-border-4"
+          />
           <div className="relative overflow-hidden rounded-3xl bg-card pop-border-4 shadow-lift">
             <div className="relative aspect-[4/5] w-full overflow-hidden">
               <img
                 src={portrait}
-                alt="Portrait d'Astrid, développeuse full-stack"
+                alt="Portrait pop art d'Astrid, développeuse full-stack à Bordeaux"
                 className="h-full w-full object-cover"
               />
             </div>
