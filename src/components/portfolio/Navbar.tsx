@@ -46,7 +46,7 @@ export function Navbar() {
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary pop-border-2 shadow-soft">
             <Zap className="h-4 w-4 text-primary-foreground" />
           </span>
-          <span className="text-primary text-stroke-thin">SOFIA.DEV</span>
+          <span className="text-primary text-stroke-thin">ASTRID</span>
         </a>
 
         <div className="hidden items-center gap-2 md:flex">
