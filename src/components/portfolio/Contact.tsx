@@ -26,9 +26,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-gradient-hero px-6 py-24">
-      <div aria-hidden className="pointer-events-none absolute inset-0 dots-bg opacity-30" />
-
+    <section id="contact" className="relative px-6 py-24">
       <div className="relative mx-auto max-w-5xl">
         <div className="mb-12 text-center">
           <p className="mb-3 inline-block rounded-full bg-primary px-4 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground pop-border shadow-soft">
