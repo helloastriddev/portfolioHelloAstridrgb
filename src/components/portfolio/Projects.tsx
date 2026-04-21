@@ -94,13 +94,13 @@ export function Projects() {
                     href="https://github.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted"
+                    className="paint-blob-alt inline-flex items-center gap-1.5 border border-border px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-muted"
                   >
                     <Github className="h-3.5 w-3.5" /> Code
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-transform hover:translate-x-0.5 hover:-translate-y-0.5"
+                    className="paint-blob paint-texture inline-flex items-center gap-1.5 bg-primary px-4 py-2 text-xs font-medium text-primary-foreground shadow-soft transition-shadow hover:shadow-glow"
                   >
                     Voir <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
