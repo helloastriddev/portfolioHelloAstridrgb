@@ -29,24 +29,19 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
-            <Button
-              asChild
-              size="lg"
-              className="group rounded-full bg-primary text-primary-foreground shadow-soft hover:shadow-glow transition-all"
+            <a
+              href="#projects"
+              className="paint-blob paint-texture group inline-flex items-center gap-2 bg-primary px-8 py-4 text-base font-medium text-primary-foreground shadow-soft transition-shadow hover:shadow-glow"
             >
-              <a href="#projects">
-                Voir les projets
-                <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="rounded-full border-foreground/20 bg-transparent hover:bg-muted"
+              Voir les projets
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <a
+              href="#contact"
+              className="paint-blob-alt inline-flex items-center px-7 py-4 text-base font-medium text-foreground border border-foreground/20 transition-colors hover:bg-muted"
             >
-              <a href="#contact">Me contacter</a>
-            </Button>
+              Me contacter
+            </a>
           </div>
 
           {/* Tiny meta strip */}

@@ -45,7 +45,7 @@ export function Navbar() {
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#home" className="group flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground italic-serif text-lg">
+          <span className="paint-blob paint-texture flex h-10 w-10 items-center justify-center bg-primary text-primary-foreground italic-serif text-lg shadow-soft">
             a
           </span>
           <span className="font-display text-lg tracking-tight">
