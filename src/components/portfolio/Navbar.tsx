@@ -66,24 +66,20 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
+          <button
             onClick={toggleTheme}
             aria-label="Changer de thème"
-            className="rounded-full hover:bg-muted"
+            className="paint-blob-alt flex h-10 w-10 items-center justify-center text-foreground hover:bg-muted transition-colors"
           >
             {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full md:hidden"
+          </button>
+          <button
+            className="paint-blob-alt flex h-10 w-10 items-center justify-center text-foreground hover:bg-muted transition-colors md:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Menu"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </Button>
+          </button>
         </div>
       </nav>
 
