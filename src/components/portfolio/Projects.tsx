@@ -1,82 +1,108 @@
-import { Github, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 
 const projects = [
   {
+    n: "01",
     title: "Sereins",
-    tag: "WOW!",
+    subtitle: "Bien-être numérique",
     description:
-      "Application web de bien-être : exercices de respiration et suivi d'humeur dans un espace numérique apaisant.",
-    tech: ["React", "TypeScript", "Tailwind"],
-    bg: "bg-secondary text-secondary-foreground",
-    dotsClass: "dots-blue-bg",
+      "Application web de respiration et suivi d'humeur. Pensée comme un espace calme : interfaces lentes, animations douces, vocabulaire bienveillant.",
+    problem: "Aider à ralentir dans une journée saturée d'écrans.",
+    result: "Sessions de 3 min, taux de retour quotidien élevé.",
+    tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
+    accent: "primary",
   },
   {
+    n: "02",
     title: "Popote",
-    tag: "YUM!",
+    subtitle: "Recettes communautaires",
     description:
-      "Plateforme de partage de recettes communautaire. Découvre, crée et partage tes plats favoris.",
+      "Plateforme sociale de partage de recettes. Architecture .NET côté backend, interface React sensible côté front.",
+    problem: "Centraliser les recettes familiales avec une vraie expérience sociale.",
+    result: "API REST stable, modèle de données scalable.",
     tech: ["C#", ".NET", "SQL Server", "React"],
-    bg: "bg-primary text-primary-foreground",
-    dotsClass: "dots-pink-bg",
+    accent: "secondary",
   },
 ];
 
 export function Projects() {
   return (
-    <section id="projects" className="relative px-6 py-24">
-      <div className="mx-auto max-w-5xl">
-        <div className="mb-12 max-w-2xl">
-          <p className="mb-4 inline-block rounded-full bg-accent px-4 py-1 text-xs font-bold uppercase tracking-widest text-accent-foreground pop-border shadow-soft">
-            Projets
+    <section id="projects" className="relative px-6 py-28">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-7">
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">— 02 / Projets</p>
+            <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight md:text-5xl">
+              Des produits qui résolvent <span className="italic-serif text-primary">un vrai problème</span>.
+            </h2>
+          </div>
+          <p className="md:col-span-4 md:col-start-9 text-muted-foreground">
+            Chaque projet commence par une question. Voici comment j'y réponds.
           </p>
-          <h2 className="font-display text-4xl uppercase tracking-wide md:text-5xl">
-            Ce sur quoi je <span className="text-primary text-stroke-thin">travaille</span>.
-          </h2>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2">
+        <div className="space-y-6">
           {projects.map((p) => (
             <article
               key={p.title}
-              className="group relative overflow-hidden rounded-3xl bg-card pop-border shadow-card transition-transform duration-200 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-lift"
+              className="group relative grid gap-8 rounded-3xl border border-border bg-card p-8 transition-all hover:border-secondary/40 hover:shadow-lift md:grid-cols-12 md:p-10"
             >
-              <div className={`relative h-36 overflow-hidden ${p.bg} border-b-4 border-foreground`}>
-                {/* Halftone overlay */}
-                <div className={`absolute inset-0 ${p.dotsClass} opacity-40`} />
-                <div className="absolute bottom-4 left-5 font-display text-3xl uppercase tracking-wide">
-                  {p.title}
+              <div className="md:col-span-2">
+                <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                  Projet {p.n}
                 </div>
-                {/* Comic burst tag */}
-                <div className="absolute right-4 top-4 rotate-6 rounded-full bg-accent px-3 py-1 font-display text-sm uppercase tracking-wide text-accent-foreground pop-border-2 shadow-soft">
-                  {p.tag}
-                </div>
+                <div
+                  className={`mt-2 h-1 w-12 rounded-full ${
+                    p.accent === "primary" ? "bg-primary" : "bg-secondary"
+                  }`}
+                />
               </div>
-              <div className="space-y-4 p-6">
-                <p className="text-sm leading-relaxed text-foreground">{p.description}</p>
-                <div className="flex flex-wrap gap-2">
+
+              <div className="md:col-span-6 space-y-4">
+                <div>
+                  <h3 className="font-display text-3xl tracking-tight md:text-4xl">{p.title}</h3>
+                  <p className="italic-serif text-lg text-muted-foreground">{p.subtitle}</p>
+                </div>
+                <p className="leading-relaxed text-foreground/90">{p.description}</p>
+                <div className="flex flex-wrap gap-2 pt-2">
                   {p.tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full bg-card px-3 py-1 text-xs font-bold text-foreground pop-border-2"
+                      className="rounded-full border border-border bg-background px-3 py-1 font-mono text-xs text-muted-foreground"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-3 pt-2">
+              </div>
+
+              <div className="md:col-span-4 space-y-4 md:border-l md:border-border md:pl-8">
+                <div>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-secondary">
+                    Problème
+                  </div>
+                  <p className="mt-1 text-sm leading-relaxed text-foreground/80">{p.problem}</p>
+                </div>
+                <div>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
+                    Résultat
+                  </div>
+                  <p className="mt-1 text-sm leading-relaxed text-foreground/80">{p.result}</p>
+                </div>
+                <div className="flex gap-2 pt-2">
                   <a
                     href="https://github.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-sm font-bold uppercase text-background pop-border-2 transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px]"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted"
                   >
-                    <Github className="h-4 w-4" /> Code
+                    <Github className="h-3.5 w-3.5" /> Code
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-bold uppercase text-primary-foreground pop-border-2 transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px]"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-transform hover:translate-x-0.5 hover:-translate-y-0.5"
                   >
-                    <ExternalLink className="h-4 w-4" /> Démo
+                    Voir <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>

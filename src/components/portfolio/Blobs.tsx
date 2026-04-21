@@ -1,19 +1,18 @@
 export function Blobs() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      {/* Halftone dot patches — pop art texture */}
+      {/* Soft organic shapes — editorial */}
+      <div className="absolute -top-32 -right-24 h-[28rem] w-[28rem] rounded-full bg-secondary/20 blur-3xl animate-float" />
       <div
-        className="absolute -top-10 right-10 h-64 w-64 dots-pink-bg opacity-50"
-        style={{ maskImage: "radial-gradient(circle, black 40%, transparent 70%)", WebkitMaskImage: "radial-gradient(circle, black 40%, transparent 70%)" }}
+        className="absolute top-[40%] -left-32 h-[26rem] w-[26rem] rounded-full bg-primary/15 blur-3xl animate-float"
+        style={{ animationDelay: "2s" }}
       />
       <div
-        className="absolute top-[45%] -left-10 h-72 w-72 dots-blue-bg opacity-40"
-        style={{ maskImage: "radial-gradient(circle, black 40%, transparent 70%)", WebkitMaskImage: "radial-gradient(circle, black 40%, transparent 70%)" }}
+        className="absolute bottom-10 right-[10%] h-72 w-72 rounded-full bg-accent/20 blur-3xl animate-float"
+        style={{ animationDelay: "4s" }}
       />
-      <div
-        className="absolute bottom-32 right-[8%] h-56 w-56 dots-bg opacity-30"
-        style={{ maskImage: "radial-gradient(circle, black 40%, transparent 70%)", WebkitMaskImage: "radial-gradient(circle, black 40%, transparent 70%)" }}
-      />
+      {/* Paper grain overlay */}
+      <div className="absolute inset-0 grain opacity-60" />
     </div>
   );
 }

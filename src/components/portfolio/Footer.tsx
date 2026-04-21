@@ -1,12 +1,15 @@
-import { Heart } from "lucide-react";
-
 export function Footer() {
   return (
-    <footer className="border-t-4 border-foreground bg-accent px-6 py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-sm font-bold uppercase tracking-wide text-accent-foreground sm:flex-row">
-        <div>© {new Date().getFullYear()} Astrid. Tous droits réservés.</div>
-        <div className="flex items-center gap-1.5">
-          Fait avec <Heart className="h-3.5 w-3.5 fill-primary text-primary" /> et des pixels POP.
+    <footer className="border-t border-border bg-background px-6 py-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 text-sm text-muted-foreground sm:flex-row sm:items-center">
+        <div className="font-display text-lg tracking-tight text-foreground">
+          Astrid<span className="italic-serif text-secondary">.</span>
+        </div>
+        <div className="font-mono text-xs uppercase tracking-widest">
+          © {new Date().getFullYear()} · Bordeaux, France
+        </div>
+        <div className="text-xs">
+          Conçu avec <span className="italic-serif text-secondary">intention</span>.
         </div>
       </div>
     </footer>

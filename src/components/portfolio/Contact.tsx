@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, Linkedin, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,77 +15,86 @@ export function Contact() {
     setTimeout(() => {
       setSending(false);
       (e.target as HTMLFormElement).reset();
-      toast.success("Message envoyé ! Je te réponds très vite ✨");
+      toast.success("Message envoyé. Je te réponds très vite.");
     }, 800);
   };
 
   const links = [
-    { icon: Mail, label: "Email", value: "hello@astrid.dev", href: "mailto:hello@astrid.dev", bg: "bg-primary text-primary-foreground" },
-    { icon: Github, label: "GitHub", value: "@astrid-dev", href: "https://github.com", bg: "bg-foreground text-background" },
-    { icon: Linkedin, label: "LinkedIn", value: "in/astrid-dev", href: "https://linkedin.com", bg: "bg-secondary text-secondary-foreground" },
+    { icon: Mail, label: "Email", value: "hello@astrid.dev", href: "mailto:hello@astrid.dev" },
+    { icon: Github, label: "GitHub", value: "@astrid-dev", href: "https://github.com" },
+    { icon: Linkedin, label: "LinkedIn", value: "in/astrid-dev", href: "https://linkedin.com" },
   ];
 
   return (
-    <section id="contact" className="relative px-6 py-24">
-      <div className="relative mx-auto max-w-5xl">
-        <div className="mb-12 text-center">
-          <p className="mb-3 inline-block rounded-full bg-primary px-4 py-1 text-xs font-bold uppercase tracking-widest text-primary-foreground pop-border shadow-soft">
-            Contact
-          </p>
-          <h2 className="font-display text-5xl uppercase tracking-wide md:text-6xl">
-            Construisons <span className="text-secondary text-stroke-thin">quelque chose de POP</span>.
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl font-medium text-foreground">
-            Un projet en tête, un poste à pourvoir, ou juste envie de dire coucou ? Écris-moi !
+    <section id="contact" className="relative px-6 py-28">
+      <div className="relative mx-auto max-w-6xl">
+        <div className="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-8">
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">— 06 / Contact</p>
+            <h2 className="mt-4 font-display text-5xl leading-[1.05] tracking-tight md:text-7xl">
+              Travaillons <span className="italic-serif text-primary">ensemble</span>.
+            </h2>
+          </div>
+          <p className="md:col-span-4 text-muted-foreground">
+            Un projet, un poste, une collaboration créative — écris-moi, je lis tout.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-5">
-          <div className="md:col-span-2 space-y-4">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5 space-y-2">
             {links.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
                 target={l.href.startsWith("http") ? "_blank" : undefined}
                 rel="noreferrer"
-                className={`group flex items-center gap-4 rounded-2xl ${l.bg} p-5 pop-border shadow-card transition-transform hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-lift`}
+                className="group flex items-center justify-between border-b border-border py-5 transition-colors hover:border-secondary"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-card text-foreground pop-border-2 transition-transform group-hover:rotate-[-8deg]">
-                  <l.icon className="h-5 w-5" />
-                </span>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider opacity-80">{l.label}</div>
-                  <div className="font-display text-lg uppercase tracking-wide">{l.value}</div>
+                <div className="flex items-center gap-4">
+                  <l.icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-secondary" />
+                  <div>
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      {l.label}
+                    </div>
+                    <div className="font-display text-xl tracking-tight">{l.value}</div>
+                  </div>
                 </div>
+                <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground" />
               </a>
             ))}
           </div>
 
           <form
             onSubmit={onSubmit}
-            className="md:col-span-3 space-y-4 rounded-3xl bg-card p-6 pop-border shadow-lift md:p-8"
+            className="md:col-span-6 md:col-start-7 space-y-5 rounded-3xl border border-border bg-card p-8 shadow-soft md:p-10"
           >
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="name" className="font-bold uppercase text-xs tracking-wider">Nom</Label>
-                <Input id="name" name="name" required placeholder="Jeanne Dupont" className="rounded-xl pop-border-2" />
+                <Label htmlFor="name" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Nom
+                </Label>
+                <Input id="name" name="name" required placeholder="Jeanne Dupont" className="rounded-xl border-border bg-background" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email" className="font-bold uppercase text-xs tracking-wider">Email</Label>
-                <Input id="email" name="email" type="email" required placeholder="jeanne@exemple.com" className="rounded-xl pop-border-2" />
+                <Label htmlFor="email" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Email
+                </Label>
+                <Input id="email" name="email" type="email" required placeholder="jeanne@exemple.com" className="rounded-xl border-border bg-background" />
               </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="message" className="font-bold uppercase text-xs tracking-wider">Message</Label>
-              <Textarea id="message" name="message" required rows={5} placeholder="Parle-moi de ton projet..." className="rounded-xl pop-border-2" />
+              <Label htmlFor="message" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                Message
+              </Label>
+              <Textarea id="message" name="message" required rows={6} placeholder="Parle-moi de ton projet…" className="rounded-xl border-border bg-background" />
             </div>
             <Button
               type="submit"
               disabled={sending}
               size="lg"
-              className="w-full rounded-full bg-primary text-primary-foreground pop-border shadow-soft hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-glow transition-transform font-bold uppercase tracking-wide"
+              className="w-full rounded-full bg-primary text-primary-foreground shadow-soft transition-all hover:shadow-glow"
             >
-              {sending ? "Envoi en cours..." : (<><Send className="mr-1 h-4 w-4" /> Envoyer le message</>)}
+              {sending ? "Envoi en cours…" : "Envoyer le message"}
             </Button>
           </form>
         </div>
