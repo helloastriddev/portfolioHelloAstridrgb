@@ -88,14 +88,13 @@ export function Contact() {
               </Label>
               <Textarea id="message" name="message" required rows={6} placeholder="Parle-moi de ton projet…" className="rounded-xl border-border bg-background" />
             </div>
-            <Button
+            <button
               type="submit"
               disabled={sending}
-              size="lg"
-              className="w-full rounded-full bg-primary text-primary-foreground shadow-soft transition-all hover:shadow-glow"
+              className="paint-blob paint-texture w-full bg-primary px-8 py-4 text-base font-medium text-primary-foreground shadow-soft transition-shadow hover:shadow-glow disabled:opacity-60"
             >
               {sending ? "Envoi en cours…" : "Envoyer le message"}
-            </Button>
+            </button>
           </form>
         </div>
       </div>
