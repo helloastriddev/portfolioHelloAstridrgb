@@ -16,8 +16,10 @@ export const en = {
     title2: "mind",
     title3: "creative",
     title4: "soul",
-    description:
-      "Full-stack developer <stack1>C# .NET</stack1> & <stack2>React TypeScript</stack2>. I build products with an engineer's rigor and an artist's sensibility.",
+    descriptionPrefix: "Full-stack developer",
+    stack1: "C# .NET",
+    stack2: "React TypeScript",
+    descriptionSuffix: "I build products with an engineer's rigor and an artist's sensibility.",
     ctaProjects: "View projects",
     ctaContact: "Get in touch",
     metaLabel: "— current focus",

@@ -1,7 +1,7 @@
-import { useTranslation } from "react-i18next";
+import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
-  const { t } = useTranslation();
+  const { t } = useI18n();
 
   return (
     <footer className="border-t border-border bg-background px-6 py-10">
@@ -10,10 +10,10 @@ export function Footer() {
           Astrid<span className="italic-serif text-secondary">.</span>
         </div>
         <div className="font-mono text-xs uppercase tracking-widest">
-          © {new Date().getFullYear()} · {t("footer.location")}
+          © {new Date().getFullYear()} · {t("footer.location") as string}
         </div>
         <div className="text-xs">
-          {t("footer.designedA")} <span className="italic-serif text-secondary">{t("footer.designedB")}</span>.
+          {t("footer.designedA") as string} <span className="italic-serif text-secondary">{t("footer.designedB") as string}</span>.
         </div>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useI18n } from "@/lib/i18n";
 
 const stepsConfig = [
   { n: "01", key: "analyser" },
@@ -8,16 +8,17 @@ const stepsConfig = [
 ] as const;
 
 export function Process() {
-  const { t } = useTranslation();
+  const { t } = useI18n();
 
   return (
     <section id="process" className="relative px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("process.eyebrow")}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("process.eyebrow") as string}</p>
             <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight md:text-5xl">
-              {t("process.titleA")} <span className="italic-serif text-primary">{t("process.titleB")}</span>{t("process.titleC")}
+              {t("process.titleA") as string} <span className="italic-serif text-primary">{t("process.titleB") as string}</span>
+              {t("process.titleC") as string}
             </h2>
           </div>
         </div>
@@ -36,12 +37,8 @@ export function Process() {
                     {s.n}
                   </span>
                 </div>
-                <h3 className="mt-5 font-display text-2xl tracking-tight">
-                  {t(`process.steps.${s.key}.title`)}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {t(`process.steps.${s.key}.text`)}
-                </p>
+                <h3 className="mt-5 font-display text-2xl tracking-tight">{t(`process.steps.${s.key}.title`) as string}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(`process.steps.${s.key}.text`) as string}</p>
               </div>
             ))}
           </div>

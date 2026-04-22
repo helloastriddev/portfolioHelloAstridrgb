@@ -4,10 +4,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { useTranslation } from "react-i18next";
+import { useI18n } from "@/lib/i18n";
 
 export function Contact() {
-  const { t } = useTranslation();
+  const { t } = useI18n();
   const [sending, setSending] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,7 +16,7 @@ export function Contact() {
     setTimeout(() => {
       setSending(false);
       (e.target as HTMLFormElement).reset();
-      toast.success(t("contact.success"));
+      toast.success(t("contact.success") as string);
     }, 800);
   };
 
@@ -31,12 +31,12 @@ export function Contact() {
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("contact.eyebrow")}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("contact.eyebrow") as string}</p>
             <h2 className="mt-4 font-display text-5xl leading-[1.05] tracking-tight md:text-7xl">
-              {t("contact.titleA")} <span className="italic-serif text-primary">{t("contact.titleB")}</span>.
+              {t("contact.titleA") as string} <span className="italic-serif text-primary">{t("contact.titleB") as string}</span>.
             </h2>
           </div>
-          <p className="md:col-span-4 text-muted-foreground">{t("contact.intro")}</p>
+          <p className="md:col-span-4 text-muted-foreground">{t("contact.intro") as string}</p>
         </div>
 
         <div className="grid gap-12 md:grid-cols-12">
@@ -52,13 +52,11 @@ export function Contact() {
                 <div className="flex items-center gap-4">
                   <l.icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-secondary" />
                   <div>
-                    <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                      {l.label}
-                    </div>
+                    <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{l.label}</div>
                     <div className="font-display text-xl tracking-tight">{l.value}</div>
                   </div>
                 </div>
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground" />
+                <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
               </a>
             ))}
           </div>
@@ -70,29 +68,29 @@ export function Contact() {
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="name" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  {t("contact.nameLabel")}
+                  {t("contact.nameLabel") as string}
                 </Label>
-                <Input id="name" name="name" required placeholder={t("contact.namePlaceholder")} className="rounded-xl border-border bg-background" />
+                <Input id="name" name="name" required placeholder={t("contact.namePlaceholder") as string} className="rounded-xl border-border bg-background" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  {t("contact.emailLabel")}
+                  {t("contact.emailLabel") as string}
                 </Label>
-                <Input id="email" name="email" type="email" required placeholder={t("contact.emailPlaceholder")} className="rounded-xl border-border bg-background" />
+                <Input id="email" name="email" type="email" required placeholder={t("contact.emailPlaceholder") as string} className="rounded-xl border-border bg-background" />
               </div>
             </div>
             <div className="space-y-2">
               <Label htmlFor="message" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                {t("contact.messageLabel")}
+                {t("contact.messageLabel") as string}
               </Label>
-              <Textarea id="message" name="message" required rows={6} placeholder={t("contact.messagePlaceholder")} className="rounded-xl border-border bg-background" />
+              <Textarea id="message" name="message" required rows={6} placeholder={t("contact.messagePlaceholder") as string} className="rounded-xl border-border bg-background" />
             </div>
             <button
               type="submit"
               disabled={sending}
               className="paint-blob paint-texture w-full bg-primary px-8 py-4 text-base font-medium text-primary-foreground shadow-soft transition-shadow hover:shadow-glow disabled:opacity-60"
             >
-              {sending ? t("contact.sending") : t("contact.submit")}
+              {sending ? (t("contact.sending") as string) : (t("contact.submit") as string)}
             </button>
           </form>
         </div>

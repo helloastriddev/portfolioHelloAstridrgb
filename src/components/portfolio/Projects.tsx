@@ -1,5 +1,5 @@
 import { ArrowUpRight, Github } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { useI18n } from "@/lib/i18n";
 
 const projectsConfig = [
   {
@@ -19,19 +19,19 @@ const projectsConfig = [
 ] as const;
 
 export function Projects() {
-  const { t } = useTranslation();
+  const { t } = useI18n();
 
   return (
     <section id="projects" className="relative px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("projects.eyebrow")}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("projects.eyebrow") as string}</p>
             <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight md:text-5xl">
-              {t("projects.titleA")} <span className="italic-serif text-primary">{t("projects.titleB")}</span>.
+              {t("projects.titleA") as string} <span className="italic-serif text-primary">{t("projects.titleB") as string}</span>.
             </h2>
           </div>
-          <p className="md:col-span-4 md:col-start-9 text-muted-foreground">{t("projects.intro")}</p>
+          <p className="md:col-span-4 md:col-start-9 text-muted-foreground">{t("projects.intro") as string}</p>
         </div>
 
         <div className="space-y-6">
@@ -42,25 +42,19 @@ export function Projects() {
             >
               <div className="md:col-span-2">
                 <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                  {t("projects.projectLabel")} {p.n}
+                  {t("projects.projectLabel") as string} {p.n}
                 </div>
                 <div
-                  className={`mt-2 h-1 w-12 rounded-full ${
-                    p.accent === "primary" ? "bg-primary" : "bg-secondary"
-                  }`}
+                  className={`mt-2 h-1 w-12 rounded-full ${p.accent === "primary" ? "bg-primary" : "bg-secondary"}`}
                 />
               </div>
 
               <div className="md:col-span-6 space-y-4">
                 <div>
                   <h3 className="font-display text-3xl tracking-tight md:text-4xl">{p.title}</h3>
-                  <p className="italic-serif text-lg text-muted-foreground">
-                    {t(`projects.items.${p.key}.subtitle`)}
-                  </p>
+                  <p className="italic-serif text-lg text-muted-foreground">{t(`projects.items.${p.key}.subtitle`) as string}</p>
                 </div>
-                <p className="leading-relaxed text-foreground/90">
-                  {t(`projects.items.${p.key}.description`)}
-                </p>
+                <p className="leading-relaxed text-foreground/90">{t(`projects.items.${p.key}.description`) as string}</p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {p.tech.map((tech) => (
                     <span
@@ -75,20 +69,12 @@ export function Projects() {
 
               <div className="md:col-span-4 space-y-4 md:border-l md:border-border md:pl-8">
                 <div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-secondary">
-                    {t("projects.problemLabel")}
-                  </div>
-                  <p className="mt-1 text-sm leading-relaxed text-foreground/80">
-                    {t(`projects.items.${p.key}.problem`)}
-                  </p>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-secondary">{t("projects.problemLabel") as string}</div>
+                  <p className="mt-1 text-sm leading-relaxed text-foreground/80">{t(`projects.items.${p.key}.problem`) as string}</p>
                 </div>
                 <div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
-                    {t("projects.resultLabel")}
-                  </div>
-                  <p className="mt-1 text-sm leading-relaxed text-foreground/80">
-                    {t(`projects.items.${p.key}.result`)}
-                  </p>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">{t("projects.resultLabel") as string}</div>
+                  <p className="mt-1 text-sm leading-relaxed text-foreground/80">{t(`projects.items.${p.key}.result`) as string}</p>
                 </div>
                 <div className="flex gap-2 pt-2">
                   <a
@@ -97,13 +83,13 @@ export function Projects() {
                     rel="noreferrer"
                     className="paint-blob-alt inline-flex items-center gap-1.5 border border-border px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-muted"
                   >
-                    <Github className="h-3.5 w-3.5" /> {t("projects.code")}
+                    <Github className="h-3.5 w-3.5" /> {t("projects.code") as string}
                   </a>
                   <a
                     href="#"
                     className="paint-blob paint-texture inline-flex items-center gap-1.5 bg-primary px-4 py-2 text-xs font-medium text-primary-foreground shadow-soft transition-shadow hover:shadow-glow"
                   >
-                    {t("projects.view")} <ArrowUpRight className="h-3.5 w-3.5" />
+                    {t("projects.view") as string} <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
