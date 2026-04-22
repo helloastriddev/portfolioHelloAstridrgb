@@ -31,7 +31,6 @@ export function Hero() {
                 stack1: <span className="font-mono text-sm text-foreground" />,
                 stack2: <span className="font-mono text-sm text-foreground" />,
               }}
-              values={{ stack1: "C# .NET", stack2: "React TypeScript" }}
             />
           </p>
 
