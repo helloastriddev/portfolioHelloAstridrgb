@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun, Menu, X, Languages } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { useI18n } from "@/lib/i18n";
 
 export function Navbar() {
-  const { t, i18n } = useTranslation();
+  const { t, language, setLanguage } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
 
   const links = [
-    { href: "#about", label: t("nav.about") },
-    { href: "#projects", label: t("nav.projects") },
-    { href: "#skills", label: t("nav.skills") },
-    { href: "#creative", label: t("nav.creative") },
-    { href: "#process", label: t("nav.process") },
-    { href: "#contact", label: t("nav.contact") },
+    { href: "#about", label: t("nav.about") as string },
+    { href: "#projects", label: t("nav.projects") as string },
+    { href: "#skills", label: t("nav.skills") as string },
+    { href: "#creative", label: t("nav.creative") as string },
+    { href: "#process", label: t("nav.process") as string },
+    { href: "#contact", label: t("nav.contact") as string },
   ];
 
   useEffect(() => {
@@ -31,15 +31,6 @@ export function Navbar() {
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
 
-  // Restore language AFTER hydration to keep SSR + initial client render in sync
-  useEffect(() => {
-    const stored = localStorage.getItem("lang");
-    if (stored === "fr" || stored === "en") {
-      if (stored !== i18n.language) i18n.changeLanguage(stored);
-      document.documentElement.lang = stored;
-    }
-  }, [i18n]);
-
   const toggleTheme = () => {
     const next = !dark;
     setDark(next);
@@ -48,13 +39,10 @@ export function Navbar() {
   };
 
   const toggleLang = () => {
-    const next = i18n.language?.startsWith("fr") ? "en" : "fr";
-    i18n.changeLanguage(next);
-    localStorage.setItem("lang", next);
-    document.documentElement.lang = next;
+    setLanguage(language === "fr" ? "en" : "fr");
   };
 
-  const currentLang = i18n.language?.startsWith("fr") ? "FR" : "EN";
+  const currentLang = language === "fr" ? "FR" : "EN";
 
   return (
     <header
@@ -87,23 +75,23 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <button
             onClick={toggleLang}
-            aria-label={t("nav.langToggle")}
-            className="paint-blob-alt flex h-10 items-center justify-center gap-1.5 px-3 text-foreground hover:bg-muted transition-colors"
+            aria-label={t("nav.langToggle") as string}
+            className="paint-blob-alt flex h-10 items-center justify-center gap-1.5 px-3 text-foreground transition-colors hover:bg-muted"
           >
             <Languages className="h-4 w-4" />
             <span className="font-mono text-xs font-medium">{currentLang}</span>
           </button>
           <button
             onClick={toggleTheme}
-            aria-label={t("nav.themeToggle")}
-            className="paint-blob-alt flex h-10 w-10 items-center justify-center text-foreground hover:bg-muted transition-colors"
+            aria-label={t("nav.themeToggle") as string}
+            className="paint-blob-alt flex h-10 w-10 items-center justify-center text-foreground transition-colors hover:bg-muted"
           >
             {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
           <button
-            className="paint-blob-alt flex h-10 w-10 items-center justify-center text-foreground hover:bg-muted transition-colors md:hidden"
+            className="paint-blob-alt flex h-10 w-10 items-center justify-center text-foreground transition-colors hover:bg-muted md:hidden"
             onClick={() => setOpen((v) => !v)}
-            aria-label={t("nav.menu")}
+            aria-label={t("nav.menu") as string}
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
