@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="border-t border-border bg-background px-6 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 text-sm text-muted-foreground sm:flex-row sm:items-center">
@@ -6,10 +10,10 @@ export function Footer() {
           Astrid<span className="italic-serif text-secondary">.</span>
         </div>
         <div className="font-mono text-xs uppercase tracking-widest">
-          © {new Date().getFullYear()} · Bordeaux, France
+          © {new Date().getFullYear()} · {t("footer.location")}
         </div>
         <div className="text-xs">
-          Conçu avec <span className="italic-serif text-secondary">intention</span>.
+          {t("footer.designedA")} <span className="italic-serif text-secondary">{t("footer.designedB")}</span>.
         </div>
       </div>
     </footer>

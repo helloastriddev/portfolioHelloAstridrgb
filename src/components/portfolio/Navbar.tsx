@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
-import { Moon, Sun, Menu, X } from "lucide-react";
-
-const links = [
-  { href: "#about", label: "À propos" },
-  { href: "#projects", label: "Projets" },
-  { href: "#skills", label: "Compétences" },
-  { href: "#creative", label: "Créatif" },
-  { href: "#process", label: "Process" },
-  { href: "#contact", label: "Contact" },
-];
+import { Moon, Sun, Menu, X, Languages } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function Navbar() {
+  const { t, i18n } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
+
+  const links = [
+    { href: "#about", label: t("nav.about") },
+    { href: "#projects", label: t("nav.projects") },
+    { href: "#skills", label: t("nav.skills") },
+    { href: "#creative", label: t("nav.creative") },
+    { href: "#process", label: t("nav.process") },
+    { href: "#contact", label: t("nav.contact") },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -35,6 +37,16 @@ export function Navbar() {
     document.documentElement.classList.toggle("dark", next);
     localStorage.setItem("theme", next ? "dark" : "light");
   };
+
+  const toggleLang = () => {
+    const next = i18n.language?.startsWith("fr") ? "en" : "fr";
+    i18n.changeLanguage(next);
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = next;
+    }
+  };
+
+  const currentLang = i18n.language?.startsWith("fr") ? "FR" : "EN";
 
   return (
     <header
@@ -66,8 +78,16 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <button
+            onClick={toggleLang}
+            aria-label={t("nav.langToggle")}
+            className="paint-blob-alt flex h-10 items-center justify-center gap-1.5 px-3 text-foreground hover:bg-muted transition-colors"
+          >
+            <Languages className="h-4 w-4" />
+            <span className="font-mono text-xs font-medium">{currentLang}</span>
+          </button>
+          <button
             onClick={toggleTheme}
-            aria-label="Changer de thème"
+            aria-label={t("nav.themeToggle")}
             className="paint-blob-alt flex h-10 w-10 items-center justify-center text-foreground hover:bg-muted transition-colors"
           >
             {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -75,7 +95,7 @@ export function Navbar() {
           <button
             className="paint-blob-alt flex h-10 w-10 items-center justify-center text-foreground hover:bg-muted transition-colors md:hidden"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
+            aria-label={t("nav.menu")}
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>

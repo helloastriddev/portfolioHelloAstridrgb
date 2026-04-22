@@ -1,55 +1,48 @@
 import { ArrowUpRight, Github } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const projects = [
+const projectsConfig = [
   {
     n: "01",
+    key: "sereins",
     title: "Sereins",
-    subtitle: "Bien-être numérique",
-    description:
-      "Application web de respiration et suivi d'humeur. Pensée comme un espace calme : interfaces lentes, animations douces, vocabulaire bienveillant.",
-    problem: "Aider à ralentir dans une journée saturée d'écrans.",
-    result: "Sessions de 3 min, taux de retour quotidien élevé.",
     tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
     accent: "primary",
   },
   {
     n: "02",
+    key: "popote",
     title: "Popote",
-    subtitle: "Recettes communautaires",
-    description:
-      "Plateforme sociale de partage de recettes. Architecture .NET côté backend, interface React sensible côté front.",
-    problem: "Centraliser les recettes familiales avec une vraie expérience sociale.",
-    result: "API REST stable, modèle de données scalable.",
     tech: ["C#", ".NET", "SQL Server", "React"],
     accent: "secondary",
   },
-];
+] as const;
 
 export function Projects() {
+  const { t } = useTranslation();
+
   return (
     <section id="projects" className="relative px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">— 02 / Projets</p>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("projects.eyebrow")}</p>
             <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight md:text-5xl">
-              Des produits qui résolvent <span className="italic-serif text-primary">un vrai problème</span>.
+              {t("projects.titleA")} <span className="italic-serif text-primary">{t("projects.titleB")}</span>.
             </h2>
           </div>
-          <p className="md:col-span-4 md:col-start-9 text-muted-foreground">
-            Chaque projet commence par une question. Voici comment j'y réponds.
-          </p>
+          <p className="md:col-span-4 md:col-start-9 text-muted-foreground">{t("projects.intro")}</p>
         </div>
 
         <div className="space-y-6">
-          {projects.map((p) => (
+          {projectsConfig.map((p) => (
             <article
               key={p.title}
               className="group relative grid gap-8 rounded-3xl border border-border bg-card p-8 transition-all hover:border-secondary/40 hover:shadow-lift md:grid-cols-12 md:p-10"
             >
               <div className="md:col-span-2">
                 <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                  Projet {p.n}
+                  {t("projects.projectLabel")} {p.n}
                 </div>
                 <div
                   className={`mt-2 h-1 w-12 rounded-full ${
@@ -61,16 +54,20 @@ export function Projects() {
               <div className="md:col-span-6 space-y-4">
                 <div>
                   <h3 className="font-display text-3xl tracking-tight md:text-4xl">{p.title}</h3>
-                  <p className="italic-serif text-lg text-muted-foreground">{p.subtitle}</p>
+                  <p className="italic-serif text-lg text-muted-foreground">
+                    {t(`projects.items.${p.key}.subtitle`)}
+                  </p>
                 </div>
-                <p className="leading-relaxed text-foreground/90">{p.description}</p>
+                <p className="leading-relaxed text-foreground/90">
+                  {t(`projects.items.${p.key}.description`)}
+                </p>
                 <div className="flex flex-wrap gap-2 pt-2">
-                  {p.tech.map((t) => (
+                  {p.tech.map((tech) => (
                     <span
-                      key={t}
+                      key={tech}
                       className="rounded-full border border-border bg-background px-3 py-1 font-mono text-xs text-muted-foreground"
                     >
-                      {t}
+                      {tech}
                     </span>
                   ))}
                 </div>
@@ -79,15 +76,19 @@ export function Projects() {
               <div className="md:col-span-4 space-y-4 md:border-l md:border-border md:pl-8">
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-secondary">
-                    Problème
+                    {t("projects.problemLabel")}
                   </div>
-                  <p className="mt-1 text-sm leading-relaxed text-foreground/80">{p.problem}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-foreground/80">
+                    {t(`projects.items.${p.key}.problem`)}
+                  </p>
                 </div>
                 <div>
                   <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
-                    Résultat
+                    {t("projects.resultLabel")}
                   </div>
-                  <p className="mt-1 text-sm leading-relaxed text-foreground/80">{p.result}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-foreground/80">
+                    {t(`projects.items.${p.key}.result`)}
+                  </p>
                 </div>
                 <div className="flex gap-2 pt-2">
                   <a
@@ -96,13 +97,13 @@ export function Projects() {
                     rel="noreferrer"
                     className="paint-blob-alt inline-flex items-center gap-1.5 border border-border px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-muted"
                   >
-                    <Github className="h-3.5 w-3.5" /> Code
+                    <Github className="h-3.5 w-3.5" /> {t("projects.code")}
                   </a>
                   <a
                     href="#"
                     className="paint-blob paint-texture inline-flex items-center gap-1.5 bg-primary px-4 py-2 text-xs font-medium text-primary-foreground shadow-soft transition-shadow hover:shadow-glow"
                   >
-                    Voir <ArrowUpRight className="h-3.5 w-3.5" />
+                    {t("projects.view")} <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
