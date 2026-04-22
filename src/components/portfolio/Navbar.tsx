@@ -31,6 +31,15 @@ export function Navbar() {
     document.documentElement.classList.toggle("dark", isDark);
   }, []);
 
+  // Restore language AFTER hydration to keep SSR + initial client render in sync
+  useEffect(() => {
+    const stored = localStorage.getItem("lang");
+    if (stored === "fr" || stored === "en") {
+      if (stored !== i18n.language) i18n.changeLanguage(stored);
+      document.documentElement.lang = stored;
+    }
+  }, [i18n]);
+
   const toggleTheme = () => {
     const next = !dark;
     setDark(next);
@@ -41,9 +50,8 @@ export function Navbar() {
   const toggleLang = () => {
     const next = i18n.language?.startsWith("fr") ? "en" : "fr";
     i18n.changeLanguage(next);
-    if (typeof document !== "undefined") {
-      document.documentElement.lang = next;
-    }
+    localStorage.setItem("lang", next);
+    document.documentElement.lang = next;
   };
 
   const currentLang = i18n.language?.startsWith("fr") ? "FR" : "EN";
