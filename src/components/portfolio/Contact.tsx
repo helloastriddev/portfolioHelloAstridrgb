@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 export function Contact() {
+  const { t } = useTranslation();
   const [sending, setSending] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,7 +16,7 @@ export function Contact() {
     setTimeout(() => {
       setSending(false);
       (e.target as HTMLFormElement).reset();
-      toast.success("Message envoyé. Je te réponds très vite.");
+      toast.success(t("contact.success"));
     }, 800);
   };
 
@@ -30,14 +31,12 @@ export function Contact() {
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">— 06 / Contact</p>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("contact.eyebrow")}</p>
             <h2 className="mt-4 font-display text-5xl leading-[1.05] tracking-tight md:text-7xl">
-              Travaillons <span className="italic-serif text-primary">ensemble</span>.
+              {t("contact.titleA")} <span className="italic-serif text-primary">{t("contact.titleB")}</span>.
             </h2>
           </div>
-          <p className="md:col-span-4 text-muted-foreground">
-            Un projet, un poste, une collaboration créative — écris-moi, je lis tout.
-          </p>
+          <p className="md:col-span-4 text-muted-foreground">{t("contact.intro")}</p>
         </div>
 
         <div className="grid gap-12 md:grid-cols-12">
@@ -71,29 +70,29 @@ export function Contact() {
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="name" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Nom
+                  {t("contact.nameLabel")}
                 </Label>
-                <Input id="name" name="name" required placeholder="Jeanne Dupont" className="rounded-xl border-border bg-background" />
+                <Input id="name" name="name" required placeholder={t("contact.namePlaceholder")} className="rounded-xl border-border bg-background" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  Email
+                  {t("contact.emailLabel")}
                 </Label>
-                <Input id="email" name="email" type="email" required placeholder="jeanne@exemple.com" className="rounded-xl border-border bg-background" />
+                <Input id="email" name="email" type="email" required placeholder={t("contact.emailPlaceholder")} className="rounded-xl border-border bg-background" />
               </div>
             </div>
             <div className="space-y-2">
               <Label htmlFor="message" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                Message
+                {t("contact.messageLabel")}
               </Label>
-              <Textarea id="message" name="message" required rows={6} placeholder="Parle-moi de ton projet…" className="rounded-xl border-border bg-background" />
+              <Textarea id="message" name="message" required rows={6} placeholder={t("contact.messagePlaceholder")} className="rounded-xl border-border bg-background" />
             </div>
             <button
               type="submit"
               disabled={sending}
               className="paint-blob paint-texture w-full bg-primary px-8 py-4 text-base font-medium text-primary-foreground shadow-soft transition-shadow hover:shadow-glow disabled:opacity-60"
             >
-              {sending ? "Envoi en cours…" : "Envoyer le message"}
+              {sending ? t("contact.sending") : t("contact.submit")}
             </button>
           </form>
         </div>
