@@ -1,5 +1,5 @@
 import { Palette, Brush, Music, Disc3 } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { useI18n } from "@/lib/i18n";
 
 const passionsConfig = [
   { icon: Palette, key: "peinture", rotate: "-rotate-2" },
@@ -9,8 +9,8 @@ const passionsConfig = [
 ] as const;
 
 export function CreativeSide() {
-  const { t } = useTranslation();
-  const marquee = t("creative.marquee", { returnObjects: true }) as string[];
+  const { t } = useI18n();
+  const marquee = t("creative.marquee") as string[];
 
   return (
     <section id="creative" className="relative overflow-hidden bg-primary px-6 py-28 text-primary-foreground">
@@ -26,14 +26,14 @@ export function CreativeSide() {
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("creative.eyebrow")}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("creative.eyebrow") as string}</p>
             <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight md:text-6xl">
-              {t("creative.titleA")}
+              {t("creative.titleA") as string}
               <br />
-              <span className="italic-serif text-secondary">{t("creative.titleB")}</span>.
+              <span className="italic-serif text-secondary">{t("creative.titleB") as string}</span>.
             </h2>
           </div>
-          <p className="md:col-span-4 text-primary-foreground/70">{t("creative.intro")}</p>
+          <p className="md:col-span-4 text-primary-foreground/70">{t("creative.intro") as string}</p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -45,13 +45,9 @@ export function CreativeSide() {
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary/15 text-secondary">
                 <p.icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-5 font-display text-2xl">{t(`creative.items.${p.key}.title`)}</h3>
-              <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                {t(`creative.items.${p.key}.note`)}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-foreground/80">
-                {t(`creative.items.${p.key}.text`)}
-              </p>
+              <h3 className="mt-5 font-display text-2xl">{t(`creative.items.${p.key}.title`) as string}</h3>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{t(`creative.items.${p.key}.note`) as string}</p>
+              <p className="mt-3 text-sm leading-relaxed text-foreground/80">{t(`creative.items.${p.key}.text`) as string}</p>
             </div>
           ))}
         </div>

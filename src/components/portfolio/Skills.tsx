@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useI18n } from "@/lib/i18n";
 
 const technicalConfig = [
   { groupKey: "backend", items: ["C#", ".NET / ASP.NET Core", "SQL Server", "Entity Framework", "Azure"] },
@@ -7,33 +7,30 @@ const technicalConfig = [
 ] as const;
 
 export function Skills() {
-  const { t } = useTranslation();
-  const soft = t("skills.soft", { returnObjects: true }) as string[];
+  const { t } = useI18n();
+  const soft = t("skills.soft") as string[];
 
   return (
     <section id="skills" className="relative px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 grid gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("skills.eyebrow")}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-secondary">{t("skills.eyebrow") as string}</p>
             <h2 className="mt-4 font-display text-4xl leading-tight tracking-tight md:text-5xl">
-              {t("skills.titleA")} <span className="italic-serif text-primary">{t("skills.titleB")}</span>{t("skills.titleC")}
+              {t("skills.titleA") as string} <span className="italic-serif text-primary">{t("skills.titleB") as string}</span>
+              {t("skills.titleC") as string}
             </h2>
           </div>
         </div>
 
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-7 space-y-8">
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              {t("skills.technicalLabel")}
-            </p>
+            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{t("skills.technicalLabel") as string}</p>
             <div className="space-y-8">
               {technicalConfig.map((cat) => (
                 <div key={cat.groupKey} className="border-t border-border pt-6">
                   <div className="grid gap-4 md:grid-cols-4">
-                    <div className="font-display text-xl text-foreground md:col-span-1">
-                      {t(`skills.groups.${cat.groupKey}`)}
-                    </div>
+                    <div className="font-display text-xl text-foreground md:col-span-1">{t(`skills.groups.${cat.groupKey}`) as string}</div>
                     <div className="md:col-span-3 flex flex-wrap gap-2">
                       {cat.items.map((s) => (
                         <span
@@ -51,9 +48,7 @@ export function Skills() {
           </div>
 
           <div className="md:col-span-4 md:col-start-9">
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              {t("skills.postureLabel")}
-            </p>
+            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{t("skills.postureLabel") as string}</p>
             <div className="mt-6 rounded-3xl bg-gradient-forest p-8 text-primary-foreground shadow-lift">
               <ul className="space-y-3">
                 {soft.map((s, i) => (
