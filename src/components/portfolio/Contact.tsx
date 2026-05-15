@@ -21,7 +21,7 @@ export function Contact() {
   };
 
   const links = [
-    { icon: Mail, label: "Email", value: "hello@astrid.dev", href: "mailto:hello@astrid.dev" },
+    { icon: Mail, label: "Email", value: "hello@astridrgb.dev", href: "mailto:hello@astridrgb.dev" },
     { icon: Github, label: "GitHub", value: "@astrid-dev", href: "https://github.com" },
     { icon: Linkedin, label: "LinkedIn", value: "in/astrid-dev", href: "https://linkedin.com" },
   ];
