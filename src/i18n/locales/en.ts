@@ -56,19 +56,12 @@ export const en = {
     code: "Code",
     view: "View",
     items: {
-      sereins: {
-        subtitle: "Digital well-being",
+      taskshare: {
+        subtitle: "Lightweight collaboration",
         description:
-          "Web app for breathing and mood tracking. Designed as a calm space: slow interfaces, soft animations, kind wording.",
-        problem: "Help people slow down in a screen-saturated day.",
-        result: "3-minute sessions, high daily return rate.",
-      },
-      popote: {
-        subtitle: "Community recipes",
-        description:
-          "Social platform to share recipes. .NET backend architecture, sensitive React interface on the front.",
-        problem: "Centralize family recipes with a real social experience.",
-        result: "Stable REST API, scalable data model.",
+          "Task list sharing app. Clean React TypeScript interface designed for instant onboarding and frictionless collaboration.",
+        problem: "Coordinate group tasks without complex tooling or mandatory sign-up.",
+        result: "Instant sharing, synced lists, zero setup.",
       },
     },
   },

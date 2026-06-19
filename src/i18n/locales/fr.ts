@@ -56,19 +56,12 @@ export const fr = {
     code: "Code",
     view: "Voir",
     items: {
-      sereins: {
-        subtitle: "Bien-être numérique",
+      taskshare: {
+        subtitle: "Collaboration légère",
         description:
-          "Application web de respiration et suivi d'humeur. Pensée comme un espace calme : interfaces lentes, animations douces, vocabulaire bienveillant.",
-        problem: "Aider à ralentir dans une journée saturée d'écrans.",
-        result: "Sessions de 3 min, taux de retour quotidien élevé.",
-      },
-      popote: {
-        subtitle: "Recettes communautaires",
-        description:
-          "Plateforme sociale de partage de recettes. Architecture .NET côté backend, interface React sensible côté front.",
-        problem: "Centraliser les recettes familiales avec une vraie expérience sociale.",
-        result: "API REST stable, modèle de données scalable.",
+          "Application de partage de listes de tâches. Interface épurée en React TypeScript, pensée pour une prise en main immédiate et une collaboration sans friction.",
+        problem: "Coordonner les tâches d'un groupe sans outil complexe ni compte obligatoire.",
+        result: "Partage instantané, listes synchronisées, zéro setup.",
       },
     },
   },

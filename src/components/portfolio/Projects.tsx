@@ -1,20 +1,14 @@
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
 const projectsConfig = [
   {
     n: "01",
-    key: "sereins",
-    title: "Sereins",
-    tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
+    key: "taskshare",
+    title: "TaskShare",
+    tech: ["React", "TypeScript"],
     accent: "primary",
-  },
-  {
-    n: "02",
-    key: "popote",
-    title: "Popote",
-    tech: ["C#", ".NET", "SQL Server", "React"],
-    accent: "secondary",
+    liveUrl: "https://taskshare-henna.vercel.app/",
   },
 ] as const;
 
@@ -78,15 +72,9 @@ export function Projects() {
                 </div>
                 <div className="flex gap-2 pt-2">
                   <a
-                    href="https://github.com"
+                    href={p.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="paint-blob-alt inline-flex items-center gap-1.5 border border-border px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-muted"
-                  >
-                    <Github className="h-3.5 w-3.5" /> {t("projects.code") as string}
-                  </a>
-                  <a
-                    href="#"
                     className="paint-blob paint-texture inline-flex items-center gap-1.5 bg-primary px-4 py-2 text-xs font-medium text-primary-foreground shadow-soft transition-shadow hover:shadow-glow"
                   >
                     {t("projects.view") as string} <ArrowUpRight className="h-3.5 w-3.5" />
